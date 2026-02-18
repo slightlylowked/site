@@ -134,10 +134,15 @@
 
         .grid-nav {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .grid-nav > *:nth-child(1),
+        .grid-nav > *:nth-child(2) {
+            grid-column: span 2;
         }
 
         .nav-card {
@@ -224,12 +229,22 @@
             .grid-nav {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .grid-nav > *:nth-child(1),
+            .grid-nav > *:nth-child(2) {
+                grid-column: span 1;
+            }
         }
 
         @media (max-width: 640px) {
             .grid-nav {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+            }
+
+            .grid-nav > *:nth-child(1),
+            .grid-nav > *:nth-child(2) {
+                grid-column: span 1;
             }
 
             .nav-card {
@@ -284,17 +299,8 @@
                     <div class="nav-card">
                         <img src="images/Baja.jpg" alt="Photography" class="nav-card-bg">
                         <div class="nav-card-content">
-                            <h2 class="nav-card-title">Bozzani Vision</h2>
+                            <h2 class="nav-card-title">Boz Vision</h2>
                             <p class="nav-card-subtitle">Photography</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="yoga.html" class="nav-card-link">
-                    <div class="nav-card brand">
-                        <div class="nav-card-content">
-                            <h2 class="nav-card-title">Yoga</h2>
-                            <p class="nav-card-subtitle">Movement and Mindfulness</p>
                         </div>
                     </div>
                 </a>
