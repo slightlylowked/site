@@ -50,8 +50,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            object-position: center;
+            object-fit: cover;
             filter: brightness(0.4);
             z-index: 0;
         }
@@ -172,6 +171,10 @@
             filter: brightness(0.5) grayscale(0);
         }
 
+        .nav-card-bg.modeling {
+            object-position: center 25%;
+        }
+
         .nav-card-content {
             position: absolute;
             bottom: 0;
@@ -213,39 +216,8 @@
             background: linear-gradient(135deg, var(--forest-green) 0%, var(--ocean-teal) 100%);
         }
 
-        .nav-card.brand .nav-card-bg {
-            opacity: 0.15;
-        }
-
         .nav-card.brand .nav-card-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-            background: transparent;
-            position: static;
-        }
-
-        .brand-logo {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
-        }
-
-        .brand-status {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1.2rem;
-            background: rgba(212, 82, 30, 0.2);
-            border: 1px solid var(--burnt-orange);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--burnt-orange);
+            background: linear-gradient(180deg, transparent 0%, rgba(26,26,26,0.85) 100%);
         }
 
         @media (max-width: 1024px) {
@@ -300,7 +272,7 @@
         <div class="grid-nav">
                 <a href="modeling.html" class="nav-card-link">
                     <div class="nav-card">
-                        <img src="images/godfrey9__1_.jpeg" alt="Modeling" class="nav-card-bg">
+                        <img src="images/godfrey9__1_.jpeg" alt="Modeling" class="nav-card-bg modeling">
                         <div class="nav-card-content">
                             <h2 class="nav-card-title">Modeling</h2>
                             <p class="nav-card-subtitle">Portfolio</p>
@@ -322,7 +294,7 @@
                     <div class="nav-card brand">
                         <div class="nav-card-content">
                             <h2 class="nav-card-title">Yoga</h2>
-                            <p class="nav-card-subtitle">Movement & Mindfulness</p>
+                            <p class="nav-card-subtitle">Movement and Mindfulness</p>
                         </div>
                     </div>
                 </a>
@@ -330,32 +302,28 @@
                 <div class="nav-card brand">
                     <div class="nav-card-content">
                         <h2 class="nav-card-title">Slightly Lowked</h2>
-                        <p class="nav-card-subtitle">Skate • Surf • Moto</p>
-                        <span class="brand-status">Coming Soon</span>
+                        <p class="nav-card-subtitle">Creative Brand</p>
                     </div>
                 </div>
 
                 <div class="nav-card brand">
                     <div class="nav-card-content">
                         <h2 class="nav-card-title">Burnt University</h2>
-                        <p class="nav-card-subtitle">Pyrography Art</p>
-                        <span class="brand-status">Coming Soon</span>
+                        <p class="nav-card-subtitle">Pyrography</p>
                     </div>
                 </div>
 
                 <div class="nav-card brand">
                     <div class="nav-card-content">
                         <h2 class="nav-card-title">Salt Haus</h2>
-                        <p class="nav-card-subtitle">Sauna Clubs • Wellness</p>
-                        <span class="brand-status">In Development</span>
+                        <p class="nav-card-subtitle">Sauna Society</p>
                     </div>
                 </div>
 
                 <div class="nav-card brand">
                     <div class="nav-card-content">
-                        <h2 class="nav-card-title">Bozzani Beef Cream</h2>
-                        <p class="nav-card-subtitle">Natural Skincare</p>
-                        <span class="brand-status">Coming Soon</span>
+                        <h2 class="nav-card-title">Beef Cream</h2>
+                        <p class="nav-card-subtitle">Natural Skin Fuel</p>
                     </div>
                 </div>
             </div>
