@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bozzani Vision - Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burnt-orange: #d4521e;
+            --desert-tan: #c4a57b;
+            --off-white: #f5f5f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: var(--off-white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26,26,26,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 3rem;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: var(--desert-tan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--burnt-orange);
+        }
+
+        .page-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        main {
+            padding: 8rem 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--desert-tan);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            main {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="back-link">← Back Home</a>
+            <div class="page-title">Bozzani Vision</div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="section-header">
+            <h1>Bozzani Vision</h1>
+            <p>Surf, action sports, and live music photography. Capturing energy, movement, and raw moments.</p>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-item"><img src="images/IMG_3147.jpg" alt="Surf Photography"></div>
+            <div class="photo-item"><img src="images/IMG_2666.jpg" alt="Surf Photography"></div>
+            <div class="photo-item"><img src="images/IMG_2208.jpg" alt="Surf Photography"></div>
+            <div class="photo-item"><img src="images/Baja-4.jpg" alt="Surf Photography"></div>
+            <div class="photo-item"><img src="images/Baja.jpg" alt="Surf Photography"></div>
+            <div class="photo-item"><img src="images/elsal-2.jpg" alt="Action Sports"></div>
+            <div class="photo-item"><img src="images/elsal-34.jpg" alt="Action Sports"></div>
+            <div class="photo-item"><img src="images/FP11_3_25-60.jpg" alt="Surf Photography"></div>
+            <div class="photo-item"><img src="images/NICA-82.jpg" alt="Action Sports"></div>
+            <div class="photo-item"><img src="images/NICA-104.jpg" alt="Action Sports"></div>
+            <div class="photo-item"><img src="images/NICA-108.jpg" alt="Action Sports"></div>
+            <div class="photo-item"><img src="images/comatose_guild-21.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Comatose_Guild-28.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Comatose_Guild-37.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Demarco_25-1.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Demarco_25-3.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Demarco_25-10.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Demarco_25-13.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Demarco_25-17.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Demarco_25-21.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Elovaters_Shoreline_25-38.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Elovaters_Shoreline_25-65.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/Elovaters_Shoreline_25-73.jpg" alt="Live Music"></div>
+            <div class="photo-item"><img src="images/MDJ_Guild-37.jpg" alt="Live Music"></div>
+        </div>
+    </main>
+</body>
+</html>
