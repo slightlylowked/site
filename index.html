@@ -34,6 +34,34 @@
             overflow-x: hidden;
         }
 
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 32% center;
+            filter: brightness(0.58);
+            transform: scale(1.02);
+        }
+
+        .page-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.35) 0%,
+                rgba(0, 0, 0, 0.45) 45%,
+                rgba(0, 0, 0, 0.55) 100%
+            );
+        }
+
         .hero {
             min-height: 100vh;
             position: relative;
@@ -41,19 +69,8 @@
             align-items: center;
             justify-content: center;
             padding: 4rem 2rem;
-            background: #1a1a1a;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 32% center;
-            filter: brightness(0.58);
-            z-index: 0;
+            background: transparent;
+            z-index: 1;
         }
 
         .hero-content {
@@ -136,7 +153,7 @@
         }
 
         .sections-wrap {
-            background: var(--charcoal);
+            background: transparent;
             padding: 4rem 2rem 5rem;
             position: relative;
             z-index: 1;
@@ -324,8 +341,10 @@
     </style>
 </head>
 <body>
+    <div class="page-bg" aria-hidden="true">
+        <img src="images/BROCKBOZZANI.jpg" alt="" class="page-bg-img">
+    </div>
     <section class="hero">
-        <img src="images/BROCKBOZZANI.jpg" alt="Brock Bozzani" class="hero-bg">
         <div class="hero-content">
             <h1>Brock Bozzani</h1>
             <p><span class="hero-role">Creative Director</span> • <a href="photography.html" class="hero-role">Photographer</a> • <a href="modeling.html" class="hero-role">Model</a> • <span class="hero-role">Yogi</span></p>

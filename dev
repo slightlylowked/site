@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+cd "$(dirname "$0")"
+if python3 -c "import livereload" 2>/dev/null; then
+  echo "Serving at http://localhost:3000 (hot reload on)"
+  python3 dev_server.py
+else
+  echo "Serving at http://localhost:3000 (no hot reload — run: pip3 install -r requirements.txt)"
+  python3 -m http.server 3000
+fi
