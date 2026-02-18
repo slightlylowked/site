@@ -88,6 +88,24 @@
             line-height: 1.8;
         }
 
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem;
+            letter-spacing: 0.15em;
+            color: var(--desert-tan);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(196, 165, 123, 0.3);
+        }
+
         .photo-grid {
             column-count: 3;
             column-gap: 1.5rem;
@@ -153,33 +171,49 @@
             <p>Surf, action sports, and live music photography. Capturing energy, movement, and raw moments.</p>
         </div>
 
-        <div class="photo-grid">
-            <div class="photo-item"><img src="images/IMG_3147.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/vsco_032224-2.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/IMG_2666.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/IMG_2208.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/Baja-4.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/Baja.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/elsal-2.jpg" alt="Action Sports"></div>
-            <div class="photo-item"><img src="images/elsal-34.jpg" alt="Action Sports"></div>
-            <div class="photo-item"><img src="images/FP11_3_25-60.jpg" alt="Surf Photography"></div>
-            <div class="photo-item"><img src="images/NICA-82.jpg" alt="Action Sports"></div>
-            <div class="photo-item"><img src="images/NICA-104.jpg" alt="Action Sports"></div>
-            <div class="photo-item"><img src="images/NICA-108.jpg" alt="Action Sports"></div>
-            <div class="photo-item"><img src="images/comatose_guild-21.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Comatose_Guild-28.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Comatose_Guild-37.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Demarco_25-1.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Demarco_25-3.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Demarco_25-10.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Demarco_25-13.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Demarco_25-17.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Demarco_25-21.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Elovaters_Shoreline_25-38.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Elovaters_Shoreline_25-65.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/Elovaters_Shoreline_25-73.jpg" alt="Live Music"></div>
-            <div class="photo-item"><img src="images/MDJ_Guild-37.jpg" alt="Live Music"></div>
-        </div>
+        <section class="category-section" aria-labelledby="surf-heading">
+            <h2 id="surf-heading" class="category-heading">SURF</h2>
+            <div class="photo-grid">
+                <div class="photo-item"><img src="images/IMG_3147.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/vsco_032224-2.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/IMG_2666.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/IMG_2208.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/Baja-4.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/Baja.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/elsal-2.jpg" alt="Action Sports"></div>
+                <div class="photo-item"><img src="images/elsal-34.jpg" alt="Action Sports"></div>
+                <div class="photo-item"><img src="images/FP11_3_25-60.jpg" alt="Surf Photography"></div>
+                <div class="photo-item"><img src="images/NICA-82.jpg" alt="Action Sports"></div>
+                <div class="photo-item"><img src="images/NICA-104.jpg" alt="Action Sports"></div>
+                <div class="photo-item"><img src="images/NICA-108.jpg" alt="Action Sports"></div>
+            </div>
+        </section>
+
+        <section class="category-section" aria-labelledby="music-heading">
+            <h2 id="music-heading" class="category-heading">MUSIC</h2>
+            <div class="photo-grid">
+                <div class="photo-item"><img src="images/comatose_guild-21.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Comatose_Guild-28.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Comatose_Guild-37.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Demarco_25-1.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Demarco_25-3.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Demarco_25-10.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Demarco_25-13.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Demarco_25-17.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Demarco_25-21.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Elovaters_Shoreline_25-38.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Elovaters_Shoreline_25-65.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/Elovaters_Shoreline_25-73.jpg" alt="Live Music"></div>
+                <div class="photo-item"><img src="images/MDJ_Guild-37.jpg" alt="Live Music"></div>
+            </div>
+        </section>
+
+        <section class="category-section" aria-labelledby="portraits-heading">
+            <h2 id="portraits-heading" class="category-heading">PORTRAITS</h2>
+            <div class="photo-grid">
+                <!-- Add portrait and lifestyle photos here -->
+            </div>
+        </section>
     </main>
 </body>
 </html>
