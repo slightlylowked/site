@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brock Bozzani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --forest-green: #1a3a2e;
+            --charcoal: #2a2a2a;
+            --burnt-orange: #d4521e;
+            --desert-tan: #c4a57b;
+            --ocean-teal: #2d5f5d;
+            --off-white: #f5f5f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            color: var(--off-white);
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.9);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--desert-tan);
+            margin-bottom: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--desert-tan);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            animation: float 2.5s ease-in-out infinite;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .hero-scroll-hint:hover {
+            opacity: 1;
+        }
+
+        .hero-scroll-hint svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        .sections-wrap {
+            background: var(--charcoal);
+            padding: 4rem 2rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sections-wrap .section-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: 0.12em;
+            text-align: center;
+            color: var(--off-white);
+            margin-bottom: 2.5rem;
+        }
+
+        .grid-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-card {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: var(--charcoal);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(212, 82, 30, 0.4);
+        }
+
+        .nav-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.4s ease;
+            filter: brightness(0.4) grayscale(0.3);
+        }
+
+        .nav-card:hover .nav-card-bg {
+            transform: scale(1.1);
+            filter: brightness(0.5) grayscale(0);
+        }
+
+        .nav-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(26,26,26,0.95) 100%);
+            z-index: 2;
+            transition: padding 0.4s ease;
+        }
+
+        .nav-card:hover .nav-card-content {
+            padding: 2.5rem;
+        }
+
+        .nav-card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 0.1em;
+            color: var(--off-white);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .nav-card-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            color: var(--desert-tan);
+            opacity: 0.9;
+        }
+
+        .nav-card-link {
+            text-decoration: none;
+            display: block;
+            height: 100%;
+        }
+
+        .nav-card.brand {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--ocean-teal) 100%);
+        }
+
+        .nav-card.brand .nav-card-bg {
+            opacity: 0.15;
+        }
+
+        .nav-card.brand .nav-card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            background: transparent;
+            position: static;
+        }
+
+        .brand-logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.5));
+        }
+
+        .brand-status {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(212, 82, 30, 0.2);
+            border: 1px solid var(--burnt-orange);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--burnt-orange);
+        }
+
+        @media (max-width: 1024px) {
+            .grid-nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-nav {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .nav-card {
+                aspect-ratio: 4/3;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .sections-wrap {
+                padding: 3rem 1.5rem 4rem;
+            }
+
+            .sections-wrap .section-heading {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="images/BROCKBOZZANI.jpg" alt="Brock Bozzani" class="hero-bg">
+        <div class="hero-content">
+            <h1>Brock Bozzani</h1>
+            <p>Creative Director • Photographer • Model • Yogi</p>
+        </div>
+        <a href="#sections" class="hero-scroll-hint" aria-label="Scroll to sections">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+    </section>
+
+    <section id="sections" class="sections-wrap" aria-label="Sections">
+        <h2 class="section-heading">Explore</h2>
+        <div class="grid-nav">
+                <a href="modeling.html" class="nav-card-link">
+                    <div class="nav-card">
+                        <img src="images/godfrey9__1_.jpeg" alt="Modeling" class="nav-card-bg">
+                        <div class="nav-card-content">
+                            <h2 class="nav-card-title">Modeling</h2>
+                            <p class="nav-card-subtitle">Portfolio</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="photography.html" class="nav-card-link">
+                    <div class="nav-card">
+                        <img src="images/Baja.jpg" alt="Photography" class="nav-card-bg">
+                        <div class="nav-card-content">
+                            <h2 class="nav-card-title">Bozzani Vision</h2>
+                            <p class="nav-card-subtitle">Photography</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="yoga.html" class="nav-card-link">
+                    <div class="nav-card">
+                        <img src="images/2408_ReformerAllegro_0008.jpg" alt="Yoga" class="nav-card-bg">
+                        <div class="nav-card-content">
+                            <h2 class="nav-card-title">Yoga</h2>
+                            <p class="nav-card-subtitle">Movement & Mindfulness</p>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="nav-card brand">
+                    <div class="nav-card-content">
+                        <img src="images/generatedtext__6_.png" alt="Slightly Lowked" class="brand-logo">
+                        <p class="nav-card-subtitle">Skate • Surf • Moto</p>
+                        <span class="brand-status">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="nav-card brand">
+                    <div class="nav-card-content">
+                        <h2 class="nav-card-title">Burnt University</h2>
+                        <p class="nav-card-subtitle">Pyrography Art</p>
+                        <span class="brand-status">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="nav-card brand">
+                    <div class="nav-card-content">
+                        <h2 class="nav-card-title">Salt Haus</h2>
+                        <p class="nav-card-subtitle">Sauna Clubs • Wellness</p>
+                        <span class="brand-status">In Development</span>
+                    </div>
+                </div>
+
+                <div class="nav-card brand">
+                    <div class="nav-card-content">
+                        <h2 class="nav-card-title">Bozzani Beef Cream</h2>
+                        <p class="nav-card-subtitle">Natural Skincare</p>
+                        <span class="brand-status">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+</html>
