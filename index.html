@@ -51,6 +51,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: 42% center;
             filter: brightness(0.4);
             z-index: 0;
         }
@@ -134,7 +135,7 @@
 
         .grid-nav {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(8, 1fr);
             gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -142,6 +143,13 @@
 
         .grid-nav > *:nth-child(1),
         .grid-nav > *:nth-child(2) {
+            grid-column: span 3;
+        }
+
+        .grid-nav > *:nth-child(3),
+        .grid-nav > *:nth-child(4),
+        .grid-nav > *:nth-child(5),
+        .grid-nav > *:nth-child(6) {
             grid-column: span 2;
         }
 
@@ -231,7 +239,11 @@
             }
 
             .grid-nav > *:nth-child(1),
-            .grid-nav > *:nth-child(2) {
+            .grid-nav > *:nth-child(2),
+            .grid-nav > *:nth-child(3),
+            .grid-nav > *:nth-child(4),
+            .grid-nav > *:nth-child(5),
+            .grid-nav > *:nth-child(6) {
                 grid-column: span 1;
             }
         }
@@ -299,7 +311,7 @@
                     <div class="nav-card">
                         <img src="images/Baja.jpg" alt="Photography" class="nav-card-bg">
                         <div class="nav-card-content">
-                            <h2 class="nav-card-title">Boz Vision</h2>
+                            <h2 class="nav-card-title">Bozzani Vision</h2>
                             <p class="nav-card-subtitle">Photography</p>
                         </div>
                     </div>
