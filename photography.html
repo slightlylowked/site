@@ -558,27 +558,6 @@
             var allPhotosWrap = document.getElementById('all-photos-wrap');
             var allPhotosGrid = document.getElementById('all-photos-grid');
 
-            function seededRandom(seed) {
-                return function() {
-                    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
-                    return seed / 0x7fffffff;
-                };
-            }
-
-            function shuffleArraySeeded(arr, seed) {
-                var a = arr.slice();
-                var rng = seededRandom(seed);
-                for (var i = a.length - 1; i > 0; i--) {
-                    var j = Math.floor(rng() * (i + 1));
-                    var t = a[i];
-                    a[i] = a[j];
-                    a[j] = t;
-                }
-                return a;
-            }
-
-            var ALL_VIEW_SHUFFLE_SEED = 202518;
-
             function showAllView() {
                 var sectionGrids = document.querySelectorAll('.category-section--sections .photo-grid');
                 var items = [];
@@ -587,7 +566,6 @@
                         items.push(el);
                     });
                 });
-                items = shuffleArraySeeded(items, ALL_VIEW_SHUFFLE_SEED);
                 allPhotosGrid.innerHTML = '';
                 items.forEach(function(el) {
                     allPhotosGrid.appendChild(el);
