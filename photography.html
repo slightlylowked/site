@@ -193,7 +193,7 @@
             100% { background-position: -200% 0; }
         }
 
-        .photo-item img {
+        .photo-item > img {
             width: 100%;
             height: auto;
             display: block;
@@ -202,11 +202,11 @@
             opacity: 0;
         }
 
-        .photo-item.is-loaded img {
+        .photo-item.is-loaded > img {
             opacity: 1;
         }
 
-        .photo-item:hover img {
+        .photo-item:hover > img {
             transform: scale(1.02);
         }
 
@@ -575,7 +575,7 @@
 
             var lightbox = document.getElementById('lightbox');
             var lightboxImg = document.getElementById('lightbox-img');
-            var images = Array.from(document.querySelectorAll('.photo-item img'));
+            var images = Array.from(document.querySelectorAll('.photo-item > img'));
             var currentIndex = 0;
 
             function openLightbox(index) {
