@@ -576,12 +576,21 @@
             var lightbox = document.getElementById('lightbox');
             var lightboxImg = document.getElementById('lightbox-img');
             var images = Array.from(document.querySelectorAll('.photo-item > img'));
+            var visibleImages = [];
             var currentIndex = 0;
 
+            function getVisibleImages() {
+                return images.filter(function(im) {
+                    var section = im.closest('.category-section');
+                    return !section || !section.classList.contains('is-hidden');
+                });
+            }
+
             function openLightbox(index) {
+                visibleImages = getVisibleImages();
                 currentIndex = index;
-                lightboxImg.src = images[index].src;
-                lightboxImg.alt = images[index].alt;
+                lightboxImg.src = visibleImages[index].src;
+                lightboxImg.alt = visibleImages[index].alt;
                 lightbox.classList.add('is-open');
                 lightbox.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
@@ -593,29 +602,34 @@
                 document.body.style.overflow = '';
             }
 
+            function goToIndex(index) {
+                if (visibleImages.length === 0) return;
+                var preload = new Image();
+                preload.onload = function() {
+                    currentIndex = index;
+                    lightboxImg.src = visibleImages[currentIndex].src;
+                    lightboxImg.alt = visibleImages[currentIndex].alt;
+                };
+                preload.src = visibleImages[index].src;
+            }
+
             function showNext() {
-                currentIndex = (currentIndex + 1) % images.length;
-                lightboxImg.src = images[currentIndex].src;
-                lightboxImg.alt = images[currentIndex].alt;
+                if (visibleImages.length === 0) return;
+                goToIndex((currentIndex + 1) % visibleImages.length);
             }
 
             function showPrev() {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                lightboxImg.src = images[currentIndex].src;
-                lightboxImg.alt = images[currentIndex].alt;
+                if (visibleImages.length === 0) return;
+                goToIndex((currentIndex - 1 + visibleImages.length) % visibleImages.length);
             }
 
             images.forEach(function(img, i) {
                 img.closest('.photo-item').addEventListener('click', function(e) {
                     e.preventDefault();
-                    var visible = images.filter(function(im) {
-                        var section = im.closest('.category-section');
-                        return !section || !section.classList.contains('is-hidden');
-                    });
+                    var visible = getVisibleImages();
                     var idx = visible.indexOf(img);
                     if (idx === -1) return;
-                    currentIndex = images.indexOf(visible[idx]);
-                    openLightbox(currentIndex);
+                    openLightbox(idx);
                 });
             });
 
