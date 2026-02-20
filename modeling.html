@@ -89,12 +89,25 @@
         }
 
         .portfolio-grid {
-            column-count: 3;
-            column-gap: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .portfolio-grid-col {
+            flex: 1;
+            min-width: 0;
+            overflow-y: auto;
+            max-height: calc(100vh - 14rem);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .portfolio-grid-col::-webkit-scrollbar {
+            display: none;
         }
 
         .portfolio-item {
-            break-inside: avoid;
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
@@ -210,7 +223,12 @@
 
         @media (max-width: 900px) {
             .portfolio-grid {
-                column-count: 2;
+                flex-wrap: wrap;
+            }
+
+            .portfolio-grid-col {
+                flex: 1 1 calc(50% - 1rem);
+                max-height: 60vh;
             }
         }
 
@@ -224,8 +242,12 @@
             }
 
             .portfolio-grid {
-                column-count: 1;
-                column-gap: 1.5rem;
+                flex-direction: column;
+            }
+
+            .portfolio-grid-col {
+                flex: 1 1 auto;
+                max-height: 70vh;
             }
 
             .portfolio-item {
@@ -248,7 +270,7 @@
             <p>Lifestyle and fashion work spanning outdoor adventure, coastal living, and refined style.</p>
         </div>
 
-        <div class="portfolio-grid">
+        <div class="portfolio-grid" id="portfolio-grid">
             <div class="portfolio-item"><img src="images/MODELING/Substance_RobertHall-8__1_.jpg" alt="Modeling"></div>
             <div class="portfolio-item"><img src="images/MODELING/Substance_RobertHall-19__1_.jpg" alt="Modeling"></div>
             <div class="portfolio-item"><img src="images/MODELING/Substance_Line39-2__1_.jpg" alt="Modeling"></div>
@@ -278,6 +300,27 @@
 
     <script>
         (function() {
+            function ensureAndDistribute(grid) {
+                var items = Array.from(grid.querySelectorAll('.portfolio-item'));
+                grid.innerHTML = '';
+                var col1 = document.createElement('div');
+                col1.className = 'portfolio-grid-col';
+                var col2 = document.createElement('div');
+                col2.className = 'portfolio-grid-col';
+                var col3 = document.createElement('div');
+                col3.className = 'portfolio-grid-col';
+                items.forEach(function(item, i) {
+                    var col = i % 3 === 0 ? col1 : (i % 3 === 1 ? col2 : col3);
+                    col.appendChild(item);
+                });
+                grid.appendChild(col1);
+                grid.appendChild(col2);
+                grid.appendChild(col3);
+            }
+
+            var portfolioGrid = document.getElementById('portfolio-grid');
+            if (portfolioGrid) ensureAndDistribute(portfolioGrid);
+
             var lightbox = document.getElementById('lightbox');
             var lightboxImg = document.getElementById('lightbox-img');
             var images = Array.from(document.querySelectorAll('.portfolio-item img'));
