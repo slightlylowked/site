@@ -756,6 +756,40 @@
                 if (e.key === 'ArrowRight') showNext();
                 if (e.key === 'ArrowLeft') showPrev();
             });
+
+            function setupDualScroll() {
+                document.addEventListener('wheel', function(e) {
+                    var grids = document.querySelectorAll('.photo-grid');
+                    var main = document.querySelector('main');
+                    var mainRect = main ? main.getBoundingClientRect() : { left: 0, right: 1e6, top: 0, bottom: 1e6 };
+                    for (var g = 0; g < grids.length; g++) {
+                        var grid = grids[g];
+                        if (grid.offsetParent === null) continue;
+                        var cols = grid.querySelectorAll('.photo-grid-col');
+                        if (cols.length !== 3) continue;
+                        var gridRect = grid.getBoundingClientRect();
+                        var inGridY = e.clientY >= gridRect.top && e.clientY <= gridRect.bottom;
+                        var inGridX = e.clientX >= gridRect.left && e.clientX <= gridRect.right;
+                        var inColumn = false;
+                        for (var i = 0; i < cols.length; i++) {
+                            var cr = cols[i].getBoundingClientRect();
+                            if (e.clientX >= cr.left && e.clientX <= cr.right) {
+                                inColumn = true;
+                                break;
+                            }
+                        }
+                        if (inColumn) return;
+                        var inMargin = inGridY && (e.clientX < gridRect.left || e.clientX > gridRect.right) &&
+                            e.clientX >= mainRect.left && e.clientX <= mainRect.right;
+                        if ((inGridX && !inColumn) || inMargin) {
+                            e.preventDefault();
+                            cols.forEach(function(c) { c.scrollTop += e.deltaY; });
+                            return;
+                        }
+                    }
+                }, { passive: false, capture: true });
+            }
+            setupDualScroll();
         })();
     </script>
 </body>
