@@ -315,6 +315,125 @@
             background: rgba(255,255,255,0.2);
         }
 
+        #client-wrap {
+            display: none;
+            margin-bottom: 0;
+        }
+
+        #client-wrap.is-visible {
+            display: block;
+        }
+
+        .client-box {
+            max-width: 440px;
+            margin: 0 auto 2rem;
+            padding: 2.5rem;
+            background: rgba(42,42,42,0.9);
+            border: 1px solid rgba(196, 165, 123, 0.25);
+            border-radius: 8px;
+        }
+
+        .client-box h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem;
+            letter-spacing: 0.1em;
+            color: var(--off-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .client-box input[type="password"] {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.75rem;
+            background: #1a1a1a;
+            border: 1px solid rgba(196, 165, 123, 0.4);
+            border-radius: 4px;
+            color: var(--off-white);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .client-box input:focus {
+            outline: none;
+            border-color: var(--burnt-orange);
+        }
+
+        .client-expiry {
+            font-size: 0.9rem;
+            color: var(--desert-tan);
+            margin-bottom: 1.25rem;
+        }
+
+        .client-submit {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            padding: 0.65rem 1.5rem;
+            background: var(--burnt-orange);
+            border: none;
+            color: var(--off-white);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .client-submit:hover {
+            background: #b84518;
+        }
+
+        .client-error {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--burnt-orange);
+            display: none;
+        }
+
+        .client-error.is-visible {
+            display: block;
+        }
+
+        .client-success {
+            display: none;
+            text-align: center;
+        }
+
+        .client-success.is-visible {
+            display: block;
+        }
+
+        .client-success h2 {
+            margin-bottom: 1rem;
+        }
+
+        .client-view-gallery {
+            display: inline-block;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.15em;
+            padding: 1rem 2rem;
+            margin: 1rem 0 1.5rem;
+            background: var(--burnt-orange);
+            border: none;
+            color: var(--off-white);
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .client-view-gallery:hover {
+            background: #b84518;
+            color: var(--off-white);
+        }
+
+        .client-access-form {
+            display: block;
+        }
+
+        .client-access-form.is-hidden {
+            display: none;
+        }
+
         @media (max-width: 900px) {
             .photo-grid {
                 flex-wrap: wrap;
@@ -365,6 +484,24 @@
             <button type="button" class="filter-btn" data-filter="surf">SURF</button>
             <button type="button" class="filter-btn" data-filter="music">MUSIC</button>
             <button type="button" class="filter-btn" data-filter="portraits">PORTRAITS</button>
+            <button type="button" class="filter-btn" data-filter="client">CLIENT</button>
+        </div>
+
+        <div id="client-wrap" class="category-section">
+            <div class="client-box">
+                <div id="client-access-form" class="client-access-form">
+                    <h2>Client gallery</h2>
+                    <input type="password" id="client-code" placeholder="Enter access code" autocomplete="off">
+                    <p class="client-expiry">Gallery expires in 1 week</p>
+                    <button type="button" class="client-submit" id="client-submit">Continue</button>
+                    <p class="client-error" id="client-error" role="alert"></p>
+                </div>
+                <div id="client-success" class="client-success">
+                    <h2>MDJ + DEAD NETTLE + NAT LEFKOFF</h2>
+                    <a href="#" id="client-gallery-link" class="client-view-gallery" target="_blank" rel="noopener noreferrer">VIEW GALLERY</a>
+                    <p class="client-expiry">Gallery expires in 1 week</p>
+                </div>
+            </div>
         </div>
 
         <div id="all-photos-wrap" class="category-section is-hidden">
@@ -571,10 +708,63 @@
 
     <script>
         (function() {
+            // ========== CLIENT GALLERY: UPDATE FOR EACH NEW CLIENT ==========
+            // Change this to the access code you send to the client:
+            var CLIENT_ACCESS_CODE = 'JACK';
+            // Change this to the client's Google Drive folder link (opens in new tab):
+            var CLIENT_GALLERY_LINK = 'https://drive.google.com/drive/folders/1nkG5EbKl_HsmGKaYjPInGRzQiNrX1Qdi?usp=sharing';
+            // ================================================================
+
             var filterBtns = document.querySelectorAll('.filter-btn');
             var sectionSections = document.querySelectorAll('.category-section--sections');
             var allPhotosWrap = document.getElementById('all-photos-wrap');
             var allPhotosGrid = document.getElementById('all-photos-grid');
+
+            var clientWrap = document.getElementById('client-wrap');
+            var clientAccessForm = document.getElementById('client-access-form');
+            var clientSuccess = document.getElementById('client-success');
+            var clientCodeInput = document.getElementById('client-code');
+            var clientSubmitBtn = document.getElementById('client-submit');
+            var clientError = document.getElementById('client-error');
+            var clientGalleryLink = document.getElementById('client-gallery-link');
+
+            function showClientView() {
+                allPhotosWrap.classList.add('is-hidden');
+                sectionSections.forEach(function(s) { s.classList.add('is-hidden'); });
+                clientWrap.classList.add('is-visible');
+                clientAccessForm.classList.remove('is-hidden');
+                clientSuccess.classList.remove('is-visible');
+                clientError.classList.remove('is-visible');
+                clientError.textContent = '';
+                clientCodeInput.value = '';
+            }
+
+            function hideClientView() {
+                clientWrap.classList.remove('is-visible');
+            }
+
+            function showClientSuccess() {
+                clientAccessForm.classList.add('is-hidden');
+                clientSuccess.classList.add('is-visible');
+                if (clientGalleryLink) clientGalleryLink.href = CLIENT_GALLERY_LINK;
+            }
+
+            function handleClientSubmit() {
+                var code = (clientCodeInput.value || '').trim();
+                clientError.classList.remove('is-visible');
+                clientError.textContent = '';
+                if (code === CLIENT_ACCESS_CODE) {
+                    showClientSuccess();
+                } else {
+                    clientError.textContent = 'Invalid access code.';
+                    clientError.classList.add('is-visible');
+                }
+            }
+
+            if (clientCodeInput) clientCodeInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') handleClientSubmit();
+            });
+            if (clientSubmitBtn) clientSubmitBtn.addEventListener('click', handleClientSubmit);
 
             function ensureAndDistribute(grid, optionalItems) {
                 var items = optionalItems != null ? optionalItems : Array.from(grid.querySelectorAll('.photo-item'));
@@ -645,12 +835,18 @@
                     var filter = this.getAttribute('data-filter');
                     filterBtns.forEach(function(b) { b.classList.remove('is-active'); });
                     this.classList.add('is-active');
-                    if (filter === 'all') {
+                    if (filter === 'client') {
                         restoreToSections();
-                        showAllView();
+                        showClientView();
                     } else {
-                        restoreToSections();
-                        applyCategoryFilter(filter);
+                        hideClientView();
+                        if (filter === 'all') {
+                            restoreToSections();
+                            showAllView();
+                        } else {
+                            restoreToSections();
+                            applyCategoryFilter(filter);
+                        }
                     }
                 });
             });
