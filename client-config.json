@@ -1,9 +1,0 @@
-{
-  "clients": {
-    "sample-gallery": {
-      "displayName": "Sample Client",
-      "accessCode": "demo2025",
-      "expiresAt": "2026-12-31"
-    }
-  }
-}
