@@ -797,19 +797,28 @@
 
             var ALL_PRIORITY_FILES = [
                 'elsal100-2.jpg', 'Demarco_25-17.jpg', 'Baja.jpg', 'NIC-10.jpg',
-                'Pepper_Shoreline_25-16.jpg', 'Demarco_25-1.jpg', 'MDJ2-19-26-12(crop)-1.jpg',
-                'Demarco_25-13.jpg', 'DEADNETTLE2-19-26-10.jpg', 'NICA-82.jpg', 'OB2_4_26-74.jpg',
-                'OB12_2_25-12.jpg', 'STEPHSTRINGS-29.jpg', 'Pepper_Shoreline_25-22.jpg',
-                'SURFERGIRL@CORNERSTONE10_29_25-41.jpg', 'STEPHSTRINGS-01.jpg'
+                'Pepper_Shoreline_25-16.jpg', 'IMG_2208.jpg-1.jpg', 'Demarco_25-1.jpg',
+                'MDJ2-19-26-12(crop)-1.jpg', 'Demarco_25-13.jpg', 'DEADNETTLE2-19-26-10.jpg',
+                'NICA-82.jpg', 'OB2_4_26-74.jpg', 'OB12_2_25-12.jpg', 'STEPHSTRINGS-29.jpg',
+                'Pepper_Shoreline_25-22.jpg', 'SURFERGIRL@CORNERSTONE10_29_25-41.jpg', 'STEPHSTRINGS-01.jpg'
             ];
 
             function showAllView() {
                 var sectionGrids = document.querySelectorAll('.category-section--sections .photo-grid');
                 var allItems = [];
                 sectionGrids.forEach(function(grid) {
-                    grid.querySelectorAll('.photo-grid-col .photo-item').forEach(function(el) {
-                        allItems.push(el);
-                    });
+                    var cols = grid.querySelectorAll('.photo-grid-col');
+                    if (cols.length) {
+                        var maxLen = 0;
+                        cols.forEach(function(c) { maxLen = Math.max(maxLen, c.children.length); });
+                        for (var r = 0; r < maxLen; r++) {
+                            cols.forEach(function(c) {
+                                if (c.children[r]) allItems.push(c.children[r]);
+                            });
+                        }
+                    } else {
+                        grid.querySelectorAll('.photo-item').forEach(function(el) { allItems.push(el); });
+                    }
                 });
                 var priorityItems = [];
                 ALL_PRIORITY_FILES.forEach(function(filename) {
@@ -824,9 +833,11 @@
                         }
                     }
                 });
+                var seen = {};
+                priorityItems.forEach(function(item) { seen[item] = true; });
                 var restItems = [];
                 allItems.forEach(function(item) {
-                    if (priorityItems.indexOf(item) === -1) restItems.push(item);
+                    if (!seen[item]) restItems.push(item);
                 });
                 var items = priorityItems.concat(restItems);
                 ensureAndDistribute(allPhotosGrid, items);
