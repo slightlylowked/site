@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bozzani Vision - Photography</title>
     <!-- Preview image when link is shared (e.g. mobile, socials). Use absolute URL if your site has a domain. -->
-    <meta property="og:image" content="images/PHOTOGRAPHY/MUSIC/Demarco%2725-12.jpg">
+    <meta property="og:image" content="images/PHOTOGRAPHY/SHOWS/Demarco%2725-12.jpg">
     <meta property="og:title" content="Bozzani Vision - Photography">
     <meta property="og:description" content="Surf, action sports, and live music photography.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="images/PHOTOGRAPHY/MUSIC/Demarco%2725-12.jpg">
+    <meta name="twitter:image" content="images/PHOTOGRAPHY/SHOWS/Demarco%2725-12.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -432,6 +432,45 @@
             display: none;
         }
 
+        .festivals-sub-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .festivals-sub-btn {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(196, 165, 123, 0.4);
+            color: var(--desert-tan);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .festivals-sub-btn:hover {
+            color: var(--off-white);
+            border-color: var(--desert-tan);
+        }
+
+        .festivals-sub-btn.is-active {
+            background: var(--burnt-orange);
+            border-color: var(--burnt-orange);
+            color: var(--off-white);
+        }
+
+        .festivals-sub-panel {
+            display: block;
+        }
+
+        .festivals-sub-panel.is-hidden {
+            display: none;
+        }
+
         @media (max-width: 900px) {
             .photo-grid {
                 flex-wrap: wrap;
@@ -478,7 +517,8 @@
         <div class="filter-bar">
             <button type="button" class="filter-btn is-active" data-filter="all">ALL</button>
             <button type="button" class="filter-btn" data-filter="surf">SURF</button>
-            <button type="button" class="filter-btn" data-filter="music">MUSIC</button>
+            <button type="button" class="filter-btn" data-filter="shows">SHOWS</button>
+            <button type="button" class="filter-btn" data-filter="festivals">FESTIVALS</button>
             <button type="button" class="filter-btn" data-filter="portraits">PEOPLE</button>
             <button type="button" class="filter-btn" data-filter="dogs">DOGS</button>
             <button type="button" class="filter-btn" data-filter="client">CLIENT</button>
@@ -574,84 +614,163 @@
             </div>
         </section>
 
-        <section class="category-section category-section--sections" data-category="music" aria-labelledby="music-heading">
-            <h2 id="music-heading" class="category-heading">MUSIC</h2>
+        <section class="category-section category-section--sections" data-category="shows" aria-labelledby="shows-heading">
+            <h2 id="shows-heading" class="category-heading">SHOWS</h2>
             <div class="photo-grid">
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco_25-17.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ@Guild-3.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper_Shoreline_25-16.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Rebelution_Shoreline_25-03.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-21.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-20.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ2-19-26-11.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco'25-21.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Comatose_Guild-28.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-41.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Comatose@Guild-30.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Comatose@Guild-38.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Comatose_Guild-37.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/DEADNETTLE2-19-26-10.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/DEADNETTLE2-19-26-18.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco'25-2.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco'25-6.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco'25-12.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco'25-18.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco'25-20.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco_25-1.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco_25-3.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco_25-10.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco_25-13.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Demarco_25-21.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Elovaters_Shoreline_25-03.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Elovaters_Shoreline_25-38.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Elovaters_Shoreline_25-61.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Elovaters_Shoreline_25-73.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Elovaters_Shoreline_25-76.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ_Guild-37.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ@Guild-2.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ@Guild-7.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ@Guild-20.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ@Guild-39.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ@Guild-55.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ2-19-26-12(crop)-1.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ2-19-26-21.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/MDJ2-19-26-28.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/mdj2-19-26-2.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pancho@thechapel-1.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pancho@thechapel-15.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pancho@thechapel-33.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper-1.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper-2.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper_Shoreline_25-04.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper_Shoreline_25-14.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper_Shoreline_25-19.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper_Shoreline_25-20.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Pepper_Shoreline_25-22.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Rebelution_Shoreline_25-01.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Rebelution_Shoreline_25-07.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Rebelution_Shoreline_25-08.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Rebelution_Shoreline_25-20.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/Rebelution_Shoreline_25-22.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-01.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-05.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-06.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-10.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-15.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-17.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-26.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-29.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/STEPHSTRINGS-30.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-04.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-10.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-14.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-15.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-23.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-32.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-38.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-42.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SURFERGIRL@CORNERSTONE10_29_25-45.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="music"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/comatose_guild-21.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco_25-17.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ@Guild-3.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper_Shoreline_25-16.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Rebelution_Shoreline_25-03.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-21.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-20.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ2-19-26-11.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco'25-21.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Comatose_Guild-28.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-41.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Comatose@Guild-30.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Comatose@Guild-38.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Comatose_Guild-37.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/DEADNETTLE2-19-26-10.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/DEADNETTLE2-19-26-18.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco'25-2.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco'25-6.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco'25-12.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco'25-18.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco'25-20.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco_25-1.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco_25-3.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco_25-10.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco_25-13.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Demarco_25-21.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Elovaters_Shoreline_25-03.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Elovaters_Shoreline_25-38.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Elovaters_Shoreline_25-61.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Elovaters_Shoreline_25-73.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Elovaters_Shoreline_25-76.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ_Guild-37.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ@Guild-2.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ@Guild-7.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ@Guild-20.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ@Guild-39.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ@Guild-55.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ2-19-26-12(crop)-1.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ2-19-26-21.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/MDJ2-19-26-28.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/mdj2-19-26-2.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pancho@thechapel-1.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pancho@thechapel-15.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pancho@thechapel-33.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper-1.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper-2.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper_Shoreline_25-04.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper_Shoreline_25-14.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper_Shoreline_25-19.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper_Shoreline_25-20.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Pepper_Shoreline_25-22.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Rebelution_Shoreline_25-01.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Rebelution_Shoreline_25-07.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Rebelution_Shoreline_25-08.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Rebelution_Shoreline_25-20.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/Rebelution_Shoreline_25-22.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-01.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-05.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-06.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-10.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-15.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-17.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-26.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-29.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/STEPHSTRINGS-30.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-04.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-10.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-14.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-15.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-23.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-32.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-38.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-42.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/SURFERGIRL@CORNERSTONE10_29_25-45.jpg" alt="Live Music"></div>
+                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/SHOWS/comatose_guild-21.jpg" alt="Live Music"></div>
+            </div>
+        </section>
+
+        <section class="category-section category-section--sections" data-category="festivals" aria-labelledby="festivals-heading">
+            <h2 id="festivals-heading" class="category-heading">FESTIVALS</h2>
+            <div class="festivals-sub-bar">
+                <button type="button" class="festivals-sub-btn is-active" data-festivals-sub="shabang">SHABANG</button>
+            </div>
+            <div class="festivals-sub-panel" data-festivals-sub="shabang">
+                <div class="photo-grid">
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-1.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-2.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-3.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-4.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-5.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-6.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-7.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-8.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-9.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-10.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-11.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-12.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-13.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-14.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-15.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-16.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-17.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-18.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-19.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-20.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-21.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-22.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-23.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-24.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-25.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-26.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-27.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-28.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-29.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-30.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-31.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-32.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-33.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-34.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-35.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-36.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-37.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-38.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-39.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-40.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-41.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-42.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-43.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-44.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-45.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-46.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-47.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-48.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-49.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-50.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-51.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-52.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-53.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-54.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-55.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-56.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-57.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-58.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-59.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-60.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-61.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-62.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-63.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-64.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-65.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-66.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-67.jpg" alt="Shabang"></div>
+                    <div class="photo-item" data-section="festivals"><img loading="lazy" src="images/PHOTOGRAPHY/FESTIVALS/SHABANG2025SELECTS-68.jpg" alt="Shabang"></div>
+                </div>
             </div>
         </section>
 
@@ -800,7 +919,8 @@
                 'Pepper_Shoreline_25-16.jpg', 'IMG_2208.jpg-1.jpg', 'Demarco_25-1.jpg',
                 'MDJ2-19-26-12(crop)-1.jpg', 'Demarco_25-13.jpg', 'DEADNETTLE2-19-26-10.jpg',
                 'NICA-82.jpg', 'OB2_4_26-74.jpg', 'OB12_2_25-12.jpg', 'STEPHSTRINGS-29.jpg',
-                'Pepper_Shoreline_25-22.jpg', 'SURFERGIRL@CORNERSTONE10_29_25-41.jpg', 'STEPHSTRINGS-01.jpg'
+                'Pepper_Shoreline_25-22.jpg', 'SURFERGIRL@CORNERSTONE10_29_25-41.jpg', 'STEPHSTRINGS-01.jpg',
+                'SHABANG2025SELECTS-26.jpg'
             ];
 
             function showAllView() {
@@ -919,7 +1039,7 @@
                 } else if (hash) {
                     filter = hash;
                 }
-                var validFilters = ['all', 'surf', 'music', 'portraits', 'dogs', 'client'];
+                var validFilters = ['all', 'surf', 'shows', 'festivals', 'portraits', 'dogs', 'client'];
                 if (validFilters.indexOf(filter) === -1) filter = 'all';
                 setActiveFilterUI(filter);
                 if (filename) {
