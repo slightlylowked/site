@@ -833,12 +833,10 @@
                         }
                     }
                 });
-                var seen = {};
-                priorityItems.forEach(function(item) { seen[item] = true; });
                 var restItems = [];
-                allItems.forEach(function(item) {
-                    if (!seen[item]) restItems.push(item);
-                });
+                for (var j = 0; j < allItems.length; j++) {
+                    if (priorityItems.indexOf(allItems[j]) === -1) restItems.push(allItems[j]);
+                }
                 var items = priorityItems.concat(restItems);
                 ensureAndDistribute(allPhotosGrid, items);
                 sectionSections.forEach(function(s) { s.classList.add('is-hidden'); });
