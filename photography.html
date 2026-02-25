@@ -572,6 +572,13 @@
                 <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FP100-5.jpg" alt="Surf Photography"></div>
                 <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FP100-6.jpg" alt="Surf Photography"></div>
                 <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FP100-7.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-1.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-2.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-3.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-4.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-5.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-6.jpg" alt="Surf Photography"></div>
+                <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/FPFP-7.jpg" alt="Surf Photography"></div>
                 <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/IMG_2666.jpg" alt="Surf Photography"></div>
                 <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/IMG_3147.jpg" alt="Surf Photography"></div>
                 <div class="photo-item" data-section="surf"><img loading="lazy" src="images/PHOTOGRAPHY/SURF/NIC-7.jpg" alt="Surf Photography"></div>
@@ -909,7 +916,12 @@
                 'MDJ2-19-26-12(crop)-1.jpg', 'Demarco_25-13.jpg', 'DEADNETTLE2-19-26-10.jpg',
                 'NICA-82.jpg', 'OB2_4_26-74.jpg', 'OB12_2_25-12.jpg', 'STEPHSTRINGS-29.jpg',
                 'Pepper_Shoreline_25-22.jpg', 'SURFERGIRL@CORNERSTONE10_29_25-41.jpg', 'STEPHSTRINGS-01.jpg',
-                'SHABANG2025SELECTS-26.jpg'
+                'SHABANG2025SELECTS-26.jpg', 'FPFP-1.jpg'
+            ];
+
+            var SURF_PRIORITY_FILES = [
+                'elsal100-2.jpg', 'Baja.jpg', 'NICA-82.jpg', 'OB2_4_26-74.jpg', 'OB12_2_25-12.jpg',
+                'FPFP-1.jpg'
             ];
 
             function showAllView() {
@@ -976,11 +988,31 @@
                     var grid = s.querySelector('.photo-grid');
                     if (!grid) return;
                     var sectionItems = Array.from(grid.querySelectorAll('.photo-item'));
-                    sectionItems.sort(function(a, b) {
-                        var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
-                        var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
-                        return ia - ib;
-                    });
+                    var cat = s.getAttribute('data-category');
+                    if (cat === 'surf' && typeof SURF_PRIORITY_FILES !== 'undefined') {
+                        sectionItems.sort(function(a, b) {
+                            var imgA = a.querySelector('img');
+                            var imgB = b.querySelector('img');
+                            var nameA = (imgA && imgA.src) ? imgA.src.split('/').pop() : '';
+                            var nameB = (imgB && imgB.src) ? imgB.src.split('/').pop() : '';
+                            var idxA = SURF_PRIORITY_FILES.indexOf(nameA);
+                            var idxB = SURF_PRIORITY_FILES.indexOf(nameB);
+                            if (idxA === -1 && idxB === -1) {
+                                var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
+                                var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
+                                return ia - ib;
+                            }
+                            if (idxA === -1) return 1;
+                            if (idxB === -1) return -1;
+                            return idxA - idxB;
+                        });
+                    } else {
+                        sectionItems.sort(function(a, b) {
+                            var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
+                            var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
+                            return ia - ib;
+                        });
+                    }
                     ensureAndDistribute(grid, sectionItems);
                 });
                 allPhotosWrap.classList.add('is-hidden');
