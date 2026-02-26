@@ -606,7 +606,7 @@
                     <h2>Client gallery</h2>
                     <input type="password" id="client-code" placeholder="Enter access code" autocomplete="off">
                     <p class="client-expiry">Gallery expires in 1 week</p>
-                    <p class="client-expiry client-tag-msg">Please tag @brockbozzani when posting to socials</p>
+                    <p class="client-expiry client-tag-msg">Credit @brockbozzani when shared or distributed</p>
                     <button type="button" class="client-submit" id="client-submit">Continue</button>
                     <p class="client-error" id="client-error" role="alert"></p>
                 </div>
@@ -614,7 +614,7 @@
                     <h2>MDJ + DEAD NETTLE + NAT LEFKOFF</h2>
                     <a href="#" id="client-gallery-link" class="client-view-gallery" target="_blank" rel="noopener noreferrer">VIEW GALLERY</a>
                     <p class="client-expiry">Gallery expires in 1 week</p>
-                    <p class="client-expiry client-tag-msg">Please tag @brockbozzani when posting to socials</p>
+                    <p class="client-expiry client-tag-msg">Credit @brockbozzani when shared or distributed</p>
                 </div>
             </div>
         </div>
@@ -726,7 +726,6 @@
                 <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco'25-18.jpg" alt="Live Music"></div>
                 <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco'25-20.jpg" alt="Live Music"></div>
                 <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco_25-1.jpg" alt="Live Music"></div>
-                <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco_25-3.jpg" alt="Live Music"></div>
                 <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco_25-10.jpg" alt="Live Music"></div>
                 <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco_25-13.jpg" alt="Live Music"></div>
                 <div class="photo-item" data-section="shows"><img loading="lazy" src="images/PHOTOGRAPHY/MUSIC/SHOWS/Demarco_25-21.jpg" alt="Live Music"></div>
@@ -987,8 +986,9 @@
                 col2.className = 'photo-grid-col';
                 var col3 = document.createElement('div');
                 col3.className = 'photo-grid-col';
+                var isAllGrid = (grid === allPhotosGrid);
                 items.forEach(function(item, i) {
-                    if (!item.hasAttribute('data-section-index')) item.setAttribute('data-section-index', String(i));
+                    if (isAllGrid || !item.hasAttribute('data-section-index')) item.setAttribute('data-section-index', String(i));
                     var col = i % 3 === 0 ? col1 : (i % 3 === 1 ? col2 : col3);
                     col.appendChild(item);
                 });
@@ -1045,6 +1045,14 @@
                 for (var j = 0; j < allItems.length; j++) {
                     if (priorityItems.indexOf(allItems[j]) === -1) restItems.push(allItems[j]);
                 }
+                restItems.sort(function(a, b) {
+                    var ia = parseInt(a.getAttribute('data-section-index'), 10) || 99999;
+                    var ib = parseInt(b.getAttribute('data-section-index'), 10) || 99999;
+                    if (ia !== ib) return ia - ib;
+                    var srcA = (a.querySelector('img') && a.querySelector('img').src) ? a.querySelector('img').src : '';
+                    var srcB = (b.querySelector('img') && b.querySelector('img').src) ? b.querySelector('img').src : '';
+                    return srcA.localeCompare(srcB);
+                });
                 var items = priorityItems.concat(restItems);
                 ensureAndDistribute(allPhotosGrid, items);
                 sectionSections.forEach(function(s) { s.classList.add('is-hidden'); });
@@ -1093,35 +1101,41 @@
                     grids.forEach(function(grid) {
                         if (!grid) return;
                     var sectionItems = Array.from(grid.querySelectorAll('.photo-item'));
-                    var cat = s.getAttribute('data-category');
-                    if (cat === 'surf' && typeof SURF_PRIORITY_FILES !== 'undefined') {
-                        sectionItems.sort(function(a, b) {
-                            var imgA = a.querySelector('img');
-                            var imgB = b.querySelector('img');
-                            var nameA = (imgA && imgA.src) ? imgA.src.split('/').pop() : '';
-                            var nameB = (imgB && imgB.src) ? imgB.src.split('/').pop() : '';
-                            var idxA = SURF_PRIORITY_FILES.indexOf(nameA);
-                            var idxB = SURF_PRIORITY_FILES.indexOf(nameB);
-                            if (idxA === -1 && idxB === -1) {
-                                var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
-                                var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
-                                return ia - ib;
-                            }
-                            if (idxA === -1) return 1;
-                            if (idxB === -1) return -1;
-                            return idxA - idxB;
-                        });
-                    } else {
-                        sectionItems.sort(function(a, b) {
-                            var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
-                            var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
-                            return ia - ib;
-                        });
-                    }
+                    var gridCat = s.getAttribute('data-category');
+                    sectionItems.sort(function(a, b) {
+                        var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
+                        var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
+                        return ia - ib;
+                    });
                     ensureAndDistribute(grid, sectionItems);
                 });
                 });
                 allPhotosWrap.classList.add('is-hidden');
+            }
+
+            function applySurfPrioritySort() {
+                var surfSection = document.querySelector('.category-section--sections[data-category="surf"]');
+                if (!surfSection) return;
+                var grid = surfSection.querySelector('.photo-grid');
+                if (!grid) return;
+                var sectionItems = Array.from(grid.querySelectorAll('.photo-item'));
+                sectionItems.sort(function(a, b) {
+                    var imgA = a.querySelector('img');
+                    var imgB = b.querySelector('img');
+                    var nameA = (imgA && imgA.src) ? imgA.src.split('/').pop() : '';
+                    var nameB = (imgB && imgB.src) ? imgB.src.split('/').pop() : '';
+                    var idxA = SURF_PRIORITY_FILES.indexOf(nameA);
+                    var idxB = SURF_PRIORITY_FILES.indexOf(nameB);
+                    if (idxA === -1 && idxB === -1) {
+                        var ia = parseInt(a.getAttribute('data-section-index'), 10) || 0;
+                        var ib = parseInt(b.getAttribute('data-section-index'), 10) || 0;
+                        return ia - ib;
+                    }
+                    if (idxA === -1) return 1;
+                    if (idxB === -1) return -1;
+                    return idxA - idxB;
+                });
+                ensureAndDistribute(grid, sectionItems);
             }
 
             function applyCategoryFilter(filter) {
@@ -1167,6 +1181,7 @@
                         showAllView();
                     } else {
                         restoreToSections();
+                        if (filter === 'surf') applySurfPrioritySort();
                         applyCategoryFilter(filter);
                     }
                 }
