@@ -213,6 +213,147 @@
             background: rgba(255,255,255,0.2);
         }
 
+        .modeling-sub-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .modeling-sub-btn {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(196, 165, 123, 0.4);
+            color: var(--desert-tan);
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .modeling-sub-btn:hover {
+            color: var(--off-white);
+            border-color: var(--desert-tan);
+        }
+
+        .modeling-sub-btn.is-active {
+            background: var(--burnt-orange);
+            border-color: var(--burnt-orange);
+            color: var(--off-white);
+        }
+
+        .modeling-sub-panel {
+            display: block;
+        }
+
+        .modeling-sub-panel.is-hidden {
+            display: none;
+        }
+
+        .featured-section {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .featured-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: 0.1em;
+            color: var(--off-white);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .featured-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .featured-card {
+            background: #252525;
+            border: 1px solid rgba(196, 165, 123, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .featured-card:hover {
+            border-color: var(--burnt-orange);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+        }
+
+        .featured-card-thumb {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .featured-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-card-thumb-placeholder {
+            color: rgba(196, 165, 123, 0.4);
+            font-size: 2.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .featured-card-body {
+            padding: 1.25rem 1.25rem 1.5rem;
+        }
+
+        .featured-card-platform {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            color: var(--burnt-orange);
+            margin-bottom: 0.35rem;
+        }
+
+        .featured-card-desc {
+            font-size: 0.9rem;
+            color: var(--desert-tan);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .featured-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            color: var(--burnt-orange);
+            text-decoration: none;
+            border: 1px solid rgba(212, 82, 30, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .featured-card-link:hover {
+            background: var(--burnt-orange);
+            color: var(--off-white);
+            border-color: var(--burnt-orange);
+        }
+
+        .featured-card-link svg {
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+        }
+
         @media (max-width: 900px) {
             .portfolio-grid {
                 flex-wrap: wrap;
@@ -220,6 +361,10 @@
 
             .portfolio-grid-col {
                 flex: 1 1 calc(50% - 1rem);
+            }
+
+            .featured-cards {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -239,6 +384,11 @@
             .portfolio-item {
                 margin-bottom: 1.5rem;
             }
+
+            .featured-section {
+                margin-top: 0;
+                padding-top: 0;
+            }
         }
     </style>
 </head>
@@ -256,6 +406,80 @@
             <p>Lifestyle and fashion work spanning outdoor adventure, coastal living, and refined style.</p>
         </div>
 
+        <div class="modeling-sub-bar">
+            <button type="button" class="modeling-sub-btn is-active" data-modeling-sub="portfolio">PORTFOLIO</button>
+            <button type="button" class="modeling-sub-btn" data-modeling-sub="featured">FEATURED WORK</button>
+        </div>
+
+        <div class="modeling-sub-panel is-hidden" data-modeling-sub="featured" aria-labelledby="featured-heading">
+        <section class="featured-section">
+            <h2 id="featured-heading" class="featured-section-title">Featured Work</h2>
+            <div class="featured-cards">
+                <article class="featured-card">
+                    <div class="featured-card-thumb">
+                        <span class="featured-card-thumb-placeholder">IG</span>
+                    </div>
+                    <div class="featured-card-body">
+                        <div class="featured-card-platform">Instagram</div>
+                        <p class="featured-card-desc">Editorial feature</p>
+                        <a href="https://www.instagram.com/p/DPpXW85Eur_/?img_index=4" class="featured-card-link" target="_blank" rel="noopener noreferrer">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    </div>
+                </article>
+                <article class="featured-card">
+                    <div class="featured-card-thumb">
+                        <span class="featured-card-thumb-placeholder">X</span>
+                    </div>
+                    <div class="featured-card-body">
+                        <div class="featured-card-platform">X</div>
+                        <p class="featured-card-desc">Post feature</p>
+                        <a href="https://x.com/stash_pomichter/status/1986536257007292470?s=46" class="featured-card-link" target="_blank" rel="noopener noreferrer">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    </div>
+                </article>
+                <article class="featured-card">
+                    <div class="featured-card-thumb">
+                        <span class="featured-card-thumb-placeholder">TT</span>
+                    </div>
+                    <div class="featured-card-body">
+                        <div class="featured-card-platform">TikTok</div>
+                        <p class="featured-card-desc">Video feature</p>
+                        <a href="https://www.tiktok.com/@dinamita/video/7452735482783485226" class="featured-card-link" target="_blank" rel="noopener noreferrer">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    </div>
+                </article>
+                <article class="featured-card">
+                    <div class="featured-card-thumb">
+                        <span class="featured-card-thumb-placeholder">IG</span>
+                    </div>
+                    <div class="featured-card-body">
+                        <div class="featured-card-platform">Instagram</div>
+                        <p class="featured-card-desc">Editorial post</p>
+                        <a href="https://www.instagram.com/p/DJCjNlaTeCL/?img_index=1" class="featured-card-link" target="_blank" rel="noopener noreferrer">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    </div>
+                </article>
+                <article class="featured-card">
+                    <div class="featured-card-thumb">
+                        <span class="featured-card-thumb-placeholder">Reel</span>
+                    </div>
+                    <div class="featured-card-body">
+                        <div class="featured-card-platform">Instagram</div>
+                        <p class="featured-card-desc">Behind the scenes reel</p>
+                        <a href="https://www.instagram.com/reel/DSfyhq3ko0y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="featured-card-link" target="_blank" rel="noopener noreferrer">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    </div>
+                </article>
+                <article class="featured-card">
+                    <div class="featured-card-thumb">
+                        <span class="featured-card-thumb-placeholder">YT</span>
+                    </div>
+                    <div class="featured-card-body">
+                        <div class="featured-card-platform">YouTube</div>
+                        <p class="featured-card-desc">Video feature</p>
+                        <a href="https://www.youtube.com/watch?v=NhvbVmODP6o&t=29s" class="featured-card-link" target="_blank" rel="noopener noreferrer">View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        </div>
+
+        <div class="modeling-sub-panel" data-modeling-sub="portfolio">
         <div class="portfolio-grid" id="portfolio-grid">
             <div class="portfolio-item"><img src="images/MODELING/Substance_RobertHall-8__1_.jpg" alt="Modeling"></div>
             <div class="portfolio-item"><img src="images/MODELING/Substance_RobertHall-19__1_.jpg" alt="Modeling"></div>
@@ -280,6 +504,7 @@
             <div class="portfolio-item"><img src="images/MODELING/Shabang_MerchLaunch2025_03.jpg" alt="Modeling"></div>
             <div class="portfolio-item"><img src="images/MODELING/Shabang_MerchLaunch2025_06.jpg" alt="Modeling"></div>
             <div class="portfolio-item"><img src="images/MODELING/Shabang_MerchLaunch2025_09.jpg" alt="Modeling"></div>
+        </div>
         </div>
     </main>
 
@@ -364,6 +589,18 @@
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowRight') showNext();
                 if (e.key === 'ArrowLeft') showPrev();
+            });
+
+            document.querySelectorAll('.modeling-sub-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var sub = this.getAttribute('data-modeling-sub');
+                    document.querySelectorAll('.modeling-sub-btn').forEach(function(b) {
+                        b.classList.toggle('is-active', b.getAttribute('data-modeling-sub') === sub);
+                    });
+                    document.querySelectorAll('.modeling-sub-panel').forEach(function(p) {
+                        p.classList.toggle('is-hidden', p.getAttribute('data-modeling-sub') !== sub);
+                    });
+                });
             });
         })();
     </script>
