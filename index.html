@@ -230,7 +230,27 @@
         }
 
         .nav-card-bg--salt {
+            object-fit: contain;
+            object-position: center;
             filter: brightness(1.25) grayscale(0);
+            transform: scale(0.85) translateY(10%);
+        }
+
+        .nav-card:hover .nav-card-bg.nav-card-bg--salt {
+            filter: brightness(1.4) grayscale(0);
+            transform: scale(0.89) translateY(10%);
+        }
+
+        .nav-card-bg--burnt {
+            object-fit: contain;
+            object-position: center;
+            filter: brightness(1.25) grayscale(0);
+            transform: scale(1.275);
+        }
+
+        .nav-card:hover .nav-card-bg.nav-card-bg--burnt {
+            filter: brightness(1.4) grayscale(0);
+            transform: scale(1.335);
         }
 
         .nav-card-content {
@@ -428,16 +448,15 @@
                 </a>
 
                 <div class="nav-card brand">
+                    <img src="images/BRANDS/BURNT/BURNTUNIVERSITYLOGO.png" alt="Burnt University" class="nav-card-bg nav-card-bg--burnt">
                     <div class="nav-card-content">
-                        <h2 class="nav-card-title">Burnt University</h2>
                         <p class="nav-card-subtitle coming-soon">Coming soon</p>
                     </div>
                 </div>
 
                 <div class="nav-card brand">
-                    <img src="images/BRANDS/SALT/SALTLOGO.png" alt="Salt Haus" class="nav-card-bg nav-card-bg--logo nav-card-bg--salt">
+                    <img src="images/BRANDS/SALT/SALTHAUSLOGO1.png" alt="Salt Haus" class="nav-card-bg nav-card-bg--salt">
                     <div class="nav-card-content">
-                        <h2 class="nav-card-title">Salt Haus</h2>
                         <p class="nav-card-subtitle coming-soon">Coming soon</p>
                     </div>
                 </div>
