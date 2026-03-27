@@ -253,6 +253,18 @@
             transform: scale(1.335);
         }
 
+        .nav-card-bg--beef {
+            object-fit: contain;
+            object-position: center;
+            filter: brightness(1.2) grayscale(0);
+            transform: scale(0.93);
+        }
+
+        .nav-card:hover .nav-card-bg.nav-card-bg--beef {
+            filter: brightness(1.35) grayscale(0);
+            transform: scale(0.98);
+        }
+
         .nav-card-content {
             position: absolute;
             bottom: 0;
@@ -462,8 +474,8 @@
                 </div>
 
                 <div class="nav-card brand">
+                    <img src="images/BRANDS/BEEF/BEEFLOGO.png" alt="Beef Cream" class="nav-card-bg nav-card-bg--beef">
                     <div class="nav-card-content">
-                        <h2 class="nav-card-title">Beef Cream</h2>
                         <p class="nav-card-subtitle coming-soon">Coming soon</p>
                     </div>
                 </div>
