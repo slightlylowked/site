@@ -229,6 +229,12 @@
             object-position: center;
         }
 
+        /* Slightly Lowked: global .nav-card:hover .nav-card-bg scale(1.1) clips wide artwork */
+        .nav-card:hover .nav-card-bg.nav-card-bg--logo {
+            transform: none;
+            filter: brightness(1) grayscale(0);
+        }
+
         .nav-card-bg--salt {
             object-fit: contain;
             object-position: center;
@@ -244,15 +250,15 @@
         .nav-card-bg--burnt-bg {
             z-index: 0;
             object-fit: cover;
-            object-position: 76% 14%;
-            filter: brightness(0.58) grayscale(0.12);
-            transform: scale(1.74) translate(10%, -11%);
+            object-position: 73% 14%;
+            filter: brightness(1.2) grayscale(0);
+            transform: scale(1.74) translate(8%, -11%);
             transform-origin: center center;
         }
 
         .nav-card:hover .nav-card-bg.nav-card-bg--burnt-bg {
-            filter: brightness(0.68) grayscale(0.06);
-            transform: scale(1.84) translate(10%, -11%);
+            filter: brightness(1.28) grayscale(0);
+            transform: scale(1.84) translate(8%, -11%);
         }
 
         .nav-card-bg--burnt {
@@ -260,12 +266,12 @@
             object-fit: contain;
             object-position: center;
             filter: brightness(1.25) grayscale(0);
-            transform: scale(1.275) translate(-12%, 4%);
+            transform: scale(1.275);
         }
 
         .nav-card:hover .nav-card-bg.nav-card-bg--burnt {
             filter: brightness(1.4) grayscale(0);
-            transform: scale(1.335) translate(-12%, 4%);
+            transform: scale(1.335);
         }
 
         .nav-card-bg--beef {
@@ -381,6 +387,23 @@
                 aspect-ratio: 4/3;
             }
 
+            /* Slightly Lowked: same square tile as desktop — 4/3 was framing the bg awkwardly */
+            .nav-card-link > .nav-card.brand {
+                aspect-ratio: 1;
+            }
+
+            .nav-card-link > .nav-card.brand > .nav-card-bg--logo {
+                width: 92%;
+                height: 92%;
+                left: 4%;
+                top: 4%;
+            }
+
+            .nav-card-link .nav-card-title-logo {
+                width: 100%;
+                max-width: 100%;
+            }
+
             .hero h1 {
                 font-size: 3rem;
             }
@@ -475,7 +498,7 @@
                 </a>
 
                 <div class="nav-card brand">
-                    <img src="images/BRANDS/BURNT/burntdog.png" alt="" class="nav-card-bg nav-card-bg--burnt-bg" aria-hidden="true">
+                    <img src="images/BRANDS/BURNT/BURN%20BACKGROUND.png" alt="" class="nav-card-bg nav-card-bg--burnt-bg" aria-hidden="true">
                     <img src="images/BRANDS/BURNT/BURNTUNIVERSITYLOGO.png" alt="Burnt University" class="nav-card-bg nav-card-bg--burnt">
                     <div class="nav-card-content">
                         <p class="nav-card-subtitle coming-soon">Coming soon</p>
