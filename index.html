@@ -235,7 +235,22 @@
             filter: brightness(1) grayscale(0);
         }
 
+        .nav-card-bg--salt-bg {
+            z-index: 0;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(1.12) grayscale(0);
+            transform: scale(1.42) translateY(14%);
+            transform-origin: center center;
+        }
+
+        .nav-card:hover .nav-card-bg.nav-card-bg--salt-bg {
+            filter: brightness(1.2) grayscale(0);
+            transform: scale(1.48) translateY(14%);
+        }
+
         .nav-card-bg--salt {
+            z-index: 1;
             object-fit: contain;
             object-position: center;
             filter: brightness(1.25) grayscale(0);
@@ -506,6 +521,7 @@
                 </div>
 
                 <div class="nav-card brand">
+                    <img src="images/BRANDS/SALT/Sunny-Day-Gr8Highway.jpg" alt="" class="nav-card-bg nav-card-bg--salt-bg" aria-hidden="true">
                     <img src="images/BRANDS/SALT/SALTHAUSLOGO1.png" alt="Salt Haus" class="nav-card-bg nav-card-bg--salt">
                     <div class="nav-card-content">
                         <p class="nav-card-subtitle coming-soon">Coming soon</p>
