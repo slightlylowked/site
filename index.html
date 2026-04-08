@@ -361,6 +361,10 @@
             background: linear-gradient(135deg, var(--forest-green) 0%, var(--ocean-teal) 100%);
         }
 
+        .nav-card.brand.nav-card--lowked {
+            background: var(--off-white);
+        }
+
         .nav-card.brand .nav-card-content {
             background: linear-gradient(180deg, transparent 0%, rgba(26,26,26,0.85) 100%);
         }
@@ -424,18 +428,18 @@
             }
 
             /* Slightly Lowked: same square tile as desktop — 4/3 was framing the bg awkwardly */
-            .nav-card-link > .nav-card.brand {
+            .nav-card.brand.nav-card--lowked {
                 aspect-ratio: 1;
             }
 
-            .nav-card-link > .nav-card.brand > .nav-card-bg--logo {
+            .nav-card--lowked > .nav-card-bg--logo {
                 width: 92%;
                 height: 92%;
                 left: 4%;
                 top: 4%;
             }
 
-            .nav-card-link .nav-card-title-logo {
+            .nav-card--lowked .nav-card-title-logo {
                 width: 100%;
                 max-width: 100%;
             }
@@ -523,21 +527,19 @@
                     </div>
                 </a>
 
-                <a href="https://slightlylowked.github.io/SlightlyLowked/index.html" target="_blank" rel="noopener noreferrer" class="nav-card-link">
-                    <div class="nav-card brand">
-                        <img src="images/BRANDS/LOWKED/Untitled design (2).png" alt="Slightly Lowked" class="nav-card-bg nav-card-bg--logo">
-                        <div class="nav-card-content">
-                            <img src="images/BRANDS/LOWKED/SLIGHTLY LOWKED (3).png" alt="Slightly Lowked" class="nav-card-title-logo">
-                            <p class="nav-card-subtitle coming-soon">In Progess</p>
-                        </div>
+                <div class="nav-card brand nav-card--lowked">
+                    <img src="images/BRANDS/LOWKED/Untitled design (2).png" alt="Slightly Lowked" class="nav-card-bg nav-card-bg--logo">
+                    <div class="nav-card-content">
+                        <img src="images/BRANDS/LOWKED/SLIGHTLY LOWKED (3).png" alt="Slightly Lowked" class="nav-card-title-logo">
+                        <p class="nav-card-subtitle coming-soon">In progress</p>
                     </div>
-                </a>
+                </div>
 
                 <div class="nav-card brand">
                     <img src="images/BRANDS/BURNT/BURN%20BACKGROUND.png" alt="" class="nav-card-bg nav-card-bg--burnt-bg" aria-hidden="true">
                     <img src="images/BRANDS/BURNT/BURNTUNIVERSITYLOGO.png" alt="Burnt University" class="nav-card-bg nav-card-bg--burnt">
                     <div class="nav-card-content">
-                        <p class="nav-card-subtitle coming-soon">Coming soon</p>
+                        <p class="nav-card-subtitle coming-soon">In progress</p>
                     </div>
                 </div>
 
@@ -545,14 +547,14 @@
                     <img src="images/BRANDS/SALT/Sunny-Day-Gr8Highway.jpg" alt="" class="nav-card-bg nav-card-bg--salt-bg" aria-hidden="true">
                     <img src="images/BRANDS/SALT/SALTHAUSLOGO1.png" alt="Salt Haus" class="nav-card-bg nav-card-bg--salt">
                     <div class="nav-card-content">
-                        <p class="nav-card-subtitle coming-soon">Coming soon</p>
+                        <p class="nav-card-subtitle coming-soon">In progress</p>
                     </div>
                 </div>
 
                 <div class="nav-card brand">
                     <img src="images/BRANDS/BEEF/BEEFLOGO.png" alt="Beef Cream" class="nav-card-bg nav-card-bg--beef">
                     <div class="nav-card-content">
-                        <p class="nav-card-subtitle coming-soon">Coming soon</p>
+                        <p class="nav-card-subtitle coming-soon">In progress</p>
                     </div>
                 </div>
             </div>
