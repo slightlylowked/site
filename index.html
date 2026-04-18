@@ -229,10 +229,18 @@
             object-position: center;
         }
 
+        .nav-card--lowked > .nav-card-bg.nav-card-bg--logo {
+            filter: brightness(1.28) grayscale(0);
+        }
+
         /* Slightly Lowked: global .nav-card:hover .nav-card-bg scale(1.1) clips wide artwork */
         .nav-card:hover .nav-card-bg.nav-card-bg--logo {
             transform: none;
             filter: brightness(1) grayscale(0);
+        }
+
+        .nav-card.nav-card--lowked:hover > .nav-card-bg.nav-card-bg--logo {
+            filter: brightness(1.42) grayscale(0);
         }
 
         .nav-card-bg--salt-bg {
@@ -362,7 +370,7 @@
         }
 
         .nav-card.brand.nav-card--lowked {
-            background: var(--off-white);
+            background: #000;
         }
 
         .nav-card.brand .nav-card-content {
