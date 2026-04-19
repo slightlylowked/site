@@ -917,6 +917,8 @@
                 <div class="photo-item" data-section="portraits"><img loading="lazy" src="images/PHOTOGRAPHY/PORTRAITS/PEOPLE/vsco5ea7bff28b309.jpg" alt="People"></div>
                 <div class="photo-item" data-section="portraits"><img loading="lazy" src="images/PHOTOGRAPHY/PORTRAITS/PEOPLE/BIGSUR3-15-26-14.jpg" alt="People"></div>
                 <div class="photo-item" data-section="portraits"><img loading="lazy" src="images/PHOTOGRAPHY/PORTRAITS/PEOPLE/BIGSUR3-15-26.jpg" alt="People"></div>
+                <div class="photo-item" data-section="portraits"><img loading="lazy" src="images/PHOTOGRAPHY/PORTRAITS/PEOPLE/BIGSUR3-15-26-31.jpg" alt="People"></div>
+                <div class="photo-item" data-section="portraits"><img loading="lazy" src="images/PHOTOGRAPHY/PORTRAITS/PEOPLE/BIGSUR3-15-26-32.jpg" alt="People"></div>
             </div>
             </div>
             <div class="portraits-sub-panel is-hidden" data-portraits-sub="dogs">
@@ -1186,6 +1188,38 @@
                 ensureAndDistribute(grid, surfPriority.concat(surfRest));
             }
 
+            function applyPortraitsShuffle() {
+                var portraitsSection = document.querySelector('.category-section--sections[data-category="portraits"]');
+                if (!portraitsSection) return;
+                portraitsSection.querySelectorAll('.portraits-sub-panel').forEach(function(panel) {
+                    var grid = panel.querySelector('.photo-grid');
+                    if (!grid) return;
+                    var sub = panel.getAttribute('data-portraits-sub');
+                    var allItems = Array.from(grid.querySelectorAll('.photo-item'));
+                    if (allItems.length < 2) return;
+                    var priorityItems = [];
+                    ALL_PRIORITY_FILES.forEach(function(filename) {
+                        for (var i = 0; i < allItems.length; i++) {
+                            var img = allItems[i].querySelector('img');
+                            if (img && img.src) {
+                                var name = img.src.split('/').pop();
+                                if (name === filename || name === decodeURIComponent(filename)) {
+                                    priorityItems.push(allItems[i]);
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                    var restItems = [];
+                    for (var j = 0; j < allItems.length; j++) {
+                        if (priorityItems.indexOf(allItems[j]) === -1) restItems.push(allItems[j]);
+                    }
+                    var seedExtra = sub === 'dogs' ? 0x444F4753 : 0x50454F504C;
+                    shuffleSeeded(restItems, (GALLERY_SHUFFLE_SEED ^ seedExtra) >>> 0);
+                    ensureAndDistribute(grid, priorityItems.concat(restItems));
+                });
+            }
+
             function applyCategoryFilter(filter) {
                 sectionSections.forEach(function(section) {
                     var cat = section.getAttribute('data-category');
@@ -1230,6 +1264,7 @@
                     } else {
                         restoreToSections();
                         if (filter === 'surf') applySurfPrioritySort();
+                        if (filter === 'portraits') applyPortraitsShuffle();
                         applyCategoryFilter(filter);
                     }
                 }
