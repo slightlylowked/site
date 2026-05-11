@@ -88,6 +88,22 @@
             text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
         }
 
+        .hero p.hero-tagline {
+            white-space: nowrap;
+            letter-spacing: 0.07em;
+            font-size: clamp(0.58rem, 3.2vw, 1.8rem);
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .hero p.hero-tagline::-webkit-scrollbar {
+            display: none;
+        }
+
         .hero-role {
             color: inherit;
             text-decoration: none;
@@ -183,6 +199,10 @@
         .grid-nav > *:nth-child(6) {
             grid-column: 4;
             grid-row: 2;
+        }
+
+        #brands {
+            scroll-margin-top: 2rem;
         }
 
         .nav-card {
@@ -505,7 +525,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Brock Bozzani</h1>
-            <p><span class="hero-role">Brand Builder</span> • <a href="photography.html" class="hero-role">Photographer</a> • <a href="modeling.html" class="hero-role">Model</a> • <span class="hero-role">Yogi</span></p>
+            <p class="hero-tagline"><a href="#brands" class="hero-role">Brands</a> • <a href="photography.html" class="hero-role">Photography</a> • <a href="modeling.html" class="hero-role">Modeling</a> • <span class="hero-role">Yoga</span></p>
         </div>
         <a href="#sections" class="hero-scroll-hint" aria-label="Scroll to sections">
             <span>Explore</span>
@@ -535,7 +555,7 @@
                     </div>
                 </a>
 
-                <div class="nav-card brand nav-card--lowked">
+                <div id="brands" class="nav-card brand nav-card--lowked">
                     <img src="images/BRANDS/LOWKED/Untitled design (2).png" alt="Slightly Lowked" class="nav-card-bg nav-card-bg--logo">
                     <div class="nav-card-content">
                         <img src="images/BRANDS/LOWKED/SLIGHTLY LOWKED (3).png" alt="Slightly Lowked" class="nav-card-title-logo">
