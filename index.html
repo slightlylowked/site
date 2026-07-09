@@ -294,14 +294,27 @@
             z-index: 0;
             object-fit: cover;
             object-position: center;
-            filter: brightness(0.9) grayscale(0);
-            transform: scale(1.76) translateY(13%);
+            filter: brightness(0.82) grayscale(0);
+            transform: scale(1.7);
             transform-origin: center center;
         }
 
         .nav-card:hover .nav-card-bg.nav-card-bg--burnt-bg {
-            filter: brightness(1) grayscale(0);
-            transform: scale(1.85) translateY(13%);
+            filter: brightness(0.92) grayscale(0);
+            transform: scale(1.8);
+        }
+
+        .nav-card-logo--burnt {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            width: 80%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            transform: translateY(30%);
+            transform-origin: bottom right;
         }
 
         .nav-card-bg--beef {
@@ -539,7 +552,8 @@
                 </div>
 
                 <div class="nav-card brand">
-                    <img src="images/BRANDS/BURNT/burnt.png" alt="Burnt University" class="nav-card-bg nav-card-bg--burnt-bg">
+                    <img src="images/BRANDS/BURNT/BURNT3.png" alt="" class="nav-card-bg nav-card-bg--burnt-bg" aria-hidden="true">
+                    <img src="images/BRANDS/BURNT/justburnt.png" alt="Burnt University" class="nav-card-logo--burnt">
                     <div class="nav-card-content">
                         <p class="nav-card-subtitle coming-soon">In progress</p>
                     </div>
