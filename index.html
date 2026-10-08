@@ -14,6 +14,14 @@
             box-sizing: border-box;
         }
 
+        @font-face {
+            font-family: 'TAY Crumb';
+            src: url('images/BRANDS/BEEF/TAYCrumbRegular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --forest-green: #1a3a2e;
             --charcoal: #2a2a2a;
@@ -364,6 +372,29 @@
             margin-bottom: 0.5rem;
         }
 
+        .nav-card-title--beef {
+            position: absolute;
+            top: 21%;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            margin: 0;
+            padding: 0 0.75rem;
+            text-align: center;
+            font-family: 'TAY Crumb', cursive;
+            font-size: clamp(1rem, calc((100cqi - 2rem) / 10.3), 2.5rem);
+            font-weight: normal;
+            letter-spacing: 0;
+            line-height: 1;
+            text-transform: none;
+            white-space: nowrap;
+            color: #dcc07a;
+        }
+
+        .nav-card--beef {
+            container-type: inline-size;
+        }
+
         .nav-card-subtitle {
             font-size: 0.9rem;
             letter-spacing: 0.05em;
@@ -462,6 +493,10 @@
             .nav-card--lowked .nav-card-title-logo {
                 width: 100%;
                 max-width: 100%;
+            }
+
+            .nav-card-title--beef {
+                top: 13%;
             }
 
             .hero h1 {
@@ -573,6 +608,7 @@
 
                 <div class="nav-card brand nav-card--beef">
                     <img src="images/BRANDS/BEEF/COLORCOWS.png" alt="Beef Cream" class="nav-card-bg nav-card-bg--beef">
+                    <h2 class="nav-card-title nav-card-title--beef">Bozzani Beef Cream</h2>
                     <div class="nav-card-content">
                         <p class="nav-card-subtitle coming-soon">In progress</p>
                     </div>
