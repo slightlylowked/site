@@ -71,6 +71,15 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
+            container-type: inline-size;
+        }
+
+        .section-header p.section-header-lead {
+            max-width: none;
+            white-space: nowrap;
+            /* Text is ~42x its font-size wide; scale so it always fits on one line */
+            font-size: min(1.1rem, calc(100cqi / 43));
+            margin-bottom: 1.8em;
         }
 
         .section-header h1 {
@@ -465,7 +474,8 @@
     <main>
         <div class="section-header">
             <h1>Modeling</h1>
-            <p>Lifestyle and fashion work rooted in the outdoors, movement, athletics, and refined style.<br><br>SCOUT Model Agency<br>Contact: <a href="mailto:becca@scouttm.com">becca@scouttm.com</a></p>
+            <p class="section-header-lead">Lifestyle and fashion work rooted in the outdoors, movement, athletics, and refined style.</p>
+            <p>SCOUT Model Agency<br>Contact: <a href="mailto:becca@scouttm.com">becca@scouttm.com</a></p>
         </div>
 
         <div class="modeling-sub-bar">
