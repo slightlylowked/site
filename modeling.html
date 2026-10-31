@@ -369,6 +369,53 @@
             flex-shrink: 0;
         }
 
+        .brand-logos-section {
+            margin: -1rem auto 2.75rem;
+        }
+
+        .brand-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.55rem 1.15rem;
+            max-width: 760px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 56px;
+            flex: 0 0 140px;
+        }
+
+        .brand-logo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-logo img.brand-logo-img--light {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        .brand-logo:has(img) .brand-logo-name {
+            display: none;
+        }
+
+        .brand-logo-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+            line-height: 1.05;
+            color: var(--desert-tan);
+        }
+
         @media (max-width: 900px) {
             .portfolio-grid {
                 flex-wrap: wrap;
@@ -429,6 +476,54 @@
         <div class="modeling-sub-panel is-hidden" data-modeling-sub="featured" aria-labelledby="featured-heading">
         <section class="featured-section">
             <h2 id="featured-heading" class="featured-section-title">Featured Work</h2>
+            <div class="brand-logos-section">
+                <ul class="brand-logos">
+                    <li class="brand-logo">
+                        <img class="brand-logo-img--light" src="images/MODELING/FEATURED%20WORK/BRANDS/Stanley.png" alt="Stanley" style="object-view-box: inset(30.8% 6.4% 56.2% 5%)">
+                        <span class="brand-logo-name">Stanley</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img src="images/MODELING/FEATURED%20WORK/BRANDS/Doritos.png" alt="Doritos" style="object-view-box: inset(11.2% 19.2% 49.8% 18.3%)">
+                        <span class="brand-logo-name">Doritos</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img class="brand-logo-img--light" src="images/MODELING/FEATURED%20WORK/BRANDS/Shabang.png" alt="Shabang Music Festival" style="object-view-box: inset(21.9% 9.2% 59.2% 4.4%)">
+                        <span class="brand-logo-name">Shabang Music Festival</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img class="brand-logo-img--light" src="images/MODELING/FEATURED%20WORK/BRANDS/Lumin.png" alt="Lumin" style="object-view-box: inset(15.4% 11.4% 72.3% 11.4%)">
+                        <span class="brand-logo-name">Lumin</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img src="images/MODELING/FEATURED%20WORK/BRANDS/PODS.png" alt="PODS" style="object-view-box: inset(20% 8.6% 64% 8.3%)">
+                        <span class="brand-logo-name">PODS</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img src="images/MODELING/FEATURED%20WORK/BRANDS/Balanced%20Body.png" alt="Balanced Body" style="object-view-box: inset(12.9% 28.3% 60.4% 29.7%)">
+                        <span class="brand-logo-name">Balanced Body</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img src="images/MODELING/FEATURED%20WORK/BRANDS/AndersonOrd.png" alt="AndersonOrd" style="object-view-box: inset(36.9% 25.8% 40.4% 26.4%)">
+                        <span class="brand-logo-name">AndersonOrd</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img class="brand-logo-img--light" src="images/MODELING/FEATURED%20WORK/BRANDS/markandgraham.png" alt="Mark &amp; Graham" style="object-view-box: inset(24.8% 8.1% 67.9% 8.1%)">
+                        <span class="brand-logo-name">Mark &amp; Graham</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img src="images/MODELING/FEATURED%20WORK/BRANDS/Autocamp.png" alt="Autocamp" style="object-view-box: inset(19.6% 39.2% 56% 35.3%)">
+                        <span class="brand-logo-name">Autocamp</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img class="brand-logo-img--light" src="images/MODELING/FEATURED%20WORK/BRANDS/O'Neill.png" alt="O'Neill Wine" style="object-view-box: inset(13.8% 28.6% 60.2% 24.7%)">
+                        <span class="brand-logo-name">O'Neill Wine</span>
+                    </li>
+                    <li class="brand-logo">
+                        <img class="brand-logo-img--light" src="images/MODELING/FEATURED%20WORK/BRANDS/Known.png" alt="Known" style="object-view-box: inset(27.1% 27.5% 64% 28.6%)">
+                        <span class="brand-logo-name">Known</span>
+                    </li>
+                </ul>
+            </div>
             <div class="featured-cards">
                 <article class="featured-card">
                     <div class="featured-card-thumb">
@@ -546,6 +641,16 @@
         <button type="button" class="lightbox-btn next" id="lightbox-next" aria-label="Next">&rarr;</button>
     </div>
 
+    <script>
+        document.querySelectorAll('.brand-logo img').forEach(function(img) {
+            function dropMissingLogo() {
+                if (!img.isConnected) return;
+                img.remove();
+            }
+            img.addEventListener('error', dropMissingLogo);
+            if (img.complete && img.naturalWidth === 0) dropMissingLogo();
+        });
+    </script>
     <script>
         (function() {
             function ensureAndDistribute(grid) {
